@@ -23,6 +23,10 @@ builder.Services.AddDbContext<ProductDbContext>(options =>
 
 //builder.Services.AddAutoMapper();
 var app = builder.Build();
+app.UseCors(builder => builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
 using (var scope = app.Services.CreateScope())
 {
